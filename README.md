@@ -13,5 +13,5 @@ https://github.com/xiaolin3303/wx-charts
 * 悬浮球
 
 # 示例
-![登陆页](https://github.com/Zhao-666/WoDeCMS/raw/master/Example/exa2.jpg)
-![首页报表](https://github.com/Zhao-666/WoDeCMS/raw/master/Example/exa1.jpg)
+![登陆页](https://github.com/Zhao-666/WoDeCMS/raw/master/Example/login.jpg)
+![首页报表](https://github.com/Zhao-666/WoDeCMS/raw/master/Example/index.jpg)
