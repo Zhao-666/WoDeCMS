@@ -76,7 +76,9 @@ Page {
   font-size: 22rpx;
   padding: 10rpx;
 }
-
+.event-username{
+  padding: 0 20rpx 0 20rpx;
+}
 .event-item {
   display: flex;
   justify-content: space-between;

@@ -1,3 +1,5 @@
+var config = require('../../config.js')
+
 // pages/login/login.js
 Page({
   data: {
@@ -23,7 +25,7 @@ Page({
     if (tips.userNameTips === undefined && tips.passWordTips === undefined) {
       let that = this
       wx.request({
-        url: 'http://localhost:8080/Login',
+        url: config.service.loginUrl,
         data: {
           username: username,
           password: password,

@@ -1,4 +1,5 @@
 var Charts = require('../../utils/wxcharts.js')
+var config = require('../../config.js')
 
 Page({
   data: {
@@ -92,7 +93,7 @@ Page({
     let chartID = this.data.chartArray[this.data.chartIndex].value
     let timeType = this.data.timeType
     wx.request({
-      url: 'http://10.200.16.19:8080/EventsRiskTrend/?type=' + timeType + '&id=' + chartID + '&XDEBUG_SESSION_START=17413',
+      url: config.service.getChartData + '/?type=' + timeType + '&id=' + chartID,
       method: 'GET',
       success: function (res) {
         let chartData = res.data.data
@@ -111,7 +112,7 @@ Page({
     console.log('getNewEvent')
     let that = this
     wx.request({
-      url: 'http://10.200.16.19:8080/EventsInfoNews?XDEBUG_SESSION_START=10334',
+      url: config.service.getNewEvents + '/custom/EventsInfoNews',
       method: 'GET',
       success: function (res) {
         let newEventsList = res.data.data
