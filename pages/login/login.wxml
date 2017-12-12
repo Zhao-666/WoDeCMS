@@ -1,0 +1,21 @@
+<view class='container' style='background-image:url("../../images/login-bg.jpg");'>
+  <view class='login-form'>
+    <view class='logo-image'>
+      <image src='../../images/logo.png' style='height:50rpx;width:50rpx'></image>
+    </view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section-input">
+        <input class='input' placeholder-style='color:#bbb' name="username" placeholder="请输入账户" />
+      </view>
+      <view class='section-tips'>{{userNameTips}}</view>
+      <view class="section-input">
+        <input type='password' class='input' placeholder-style='color:#bbb' value='{{passWord}}' name="password" placeholder="请输入密码" bindtouchend='cleanPassword' />
+      </view>
+      <view class='section-tips'>{{passWordTips}}</view>
+      <view class="btn-area">
+        <button formType="submit">登 录</button>
+        <button formType="reset">重 置</button>
+      </view>
+    </form>
+  </view>
+</view>
