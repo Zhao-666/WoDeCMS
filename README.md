@@ -2,7 +2,7 @@
 
 微信小程序做的后台管理程序
 
-# 使用的图标组件
+# 使用的图表组件
 https://github.com/xiaolin3303/wx-charts
 
 # 功能
