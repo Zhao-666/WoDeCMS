@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<loading hidden="{{eventReady&&chartReady}}">加载中</loading>
+<view class="float-action" style="opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;" bindtouchmove="ballMoveEvent" bindtap="ballClickEvent" bindtouchstart='ballClickStart' bindtouchend='ballClickEnd'></view>
+<view class='container'>
+  <view class='upper body'>
+    <view class='title'>
+      <image class='logo' src='../../images/logo.png'></image>
+      <view class='title-text'>
+        <picker id='chart-picker' bindchange='changeChart' value='{{chartIndex}}' range='{{chartArray}}' range-key='name'>
+          {{chartArray[chartIndex].name}}
+        </picker>
+      </view>
+      <view class='section-button'>
+        <button id='time-button' class="title-button" bindtap='changeTimeType'>{{timeTitle[timeType]}}</button>
+      </view>
+    </view>
+    <canvas class='chart' canvas-id='chart-canvas'></canvas>
+  </view>
+  <view class='lower body'>
+    <view class='title'>
+      <image class='logo' src='../../images/logo.png'></image>
+      <view class='title-text'>最新事件信息</view>
+      <view class='section-button'>
+        <button id='refresh-button' class='title-button' bindtap='refreshEvent'>点我刷新</button>
+      </view>
+    </view>
+    <view class='refresh-view'>
+    </view>
+    <scroll-view id='event-scroll' scroll-y="true" style='height: 550rpx;'>
+      <block class='event' wx:key="{{index}}" wx:for="{{newEventsList}}">
+        <view class='event event1' wx:if='{{index%2==0}}'>
+          <view class='event-time'>{{item.occurtime}}</view>
+          <view class='event-item'>
+            <view class='event-username'>{{item.username}}</view>
+            <view class='event-log'>{{item.log}} </view>
+          </view>
+        </view>
+        <view class='event event2' wx:if='{{index%2==1}}'>
+          <view class='event-time'>{{item.occurtime}}</view>
+          <view class='event-item'>
+            <view class='event-username'>{{item.username}}</view>
+            <view class='event-log'>{{item.log}} </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

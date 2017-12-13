@@ -1,0 +1,8 @@
+<view class="section">
+  <view class="section__title">普通选择器</view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="name">
+    <view class="picker">
+      当前选择：{{objectArray[index].name}}
+    </view>
+  </picker>
+</view>
