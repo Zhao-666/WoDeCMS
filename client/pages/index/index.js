@@ -104,6 +104,7 @@ Page({
   },
   getNewEvents() {
     console.log('getNewEvent')
+
     let that = this
     wx.request({
       url: config.service.getNewEvents + '/custom/EventsInfoNews',

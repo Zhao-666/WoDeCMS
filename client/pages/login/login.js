@@ -74,9 +74,11 @@ Page({
     return tips
   },
   cleanPassword: function () {
-    console.log('清空密码哦')
-    this.setData({
-      passWord: ''
-    })
+    if (this.data.passWordTips !== '') {
+      console.log('清空密码哦')
+      this.setData({
+        passWord: ''
+      })
+    }
   }
 })
