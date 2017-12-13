@@ -6,19 +6,13 @@ Page({
     chartIndex: 0,
     chartArray: [{
       value: 1,
-      name: '终端DLP事件风险趋势'
-    }, {
-      value: 5,
-      name: '网络DLP事件风险趋势'
+      name: '事件1'
     }, {
       value: 2,
-      name: '安全基线违规事件风险趋势'
+      name: '事件2'
     }, {
       value: 3,
-      name: '非法外联违规事件风险趋势'
-    }, {
-      value: 4,
-      name: '防病毒扫描事件趋势'
+      name: '事件3'
     }],
     chartData: {},
     chartWidth: 0,
