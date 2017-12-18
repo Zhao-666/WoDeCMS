@@ -24,7 +24,19 @@ Page({
     timeTitle: ['', '30 天', '半 年', '一 年'],
     ballOpacity: 0.7,
     ballBottom: 20,
-    ballRight: 30
+    ballRight: 30,
+    scrollable: true,
+    showShadow: 'none',
+    animationData: {}
+  },
+  onReady: function () {
+    var animation = wx.createAnimation({
+      duration: 0
+    })
+    animation.translateX("-100%").step()
+    this.setData({
+      animationData: animation.export()
+    })
   },
   loadChart: function () {
     console.log("loadChart:")
@@ -34,6 +46,7 @@ Page({
     new Charts({
       canvasId: 'chart-canvas',
       background: '#2d3235',
+      legend: false,
       type: 'area',
       categories: result.date,//横坐标
       animation: true,
@@ -170,16 +183,15 @@ Page({
   },
   ballClickStart() {
     this.setData({
-      ballOpacity: 1
+      ballOpacity: 1,
+      scrollable: false //点了悬浮球后禁止下层scroll-view滑动
     })
   },
   ballClickEnd() {
     this.setData({
-      ballOpacity: 0.7
+      ballOpacity: 0.7,
+      scrollable: true
     })
-  },
-  ballClickEvent() {
-
   },
   ballMoveEvent(e) {
     var touchs = e.touches[0];
@@ -195,5 +207,32 @@ Page({
       ballBottom: y,
       ballRight: x
     });
+  },
+  ballClickEvent(){
+    this.slideUp()
+  },
+  slideUp() { //侧栏展开
+    this.setData({
+      showShadow: 'block'
+    })
+    var animation = wx.createAnimation({
+      duration: 300
+    })
+    animation.translateX(0).step()
+    this.setData({
+      animationData: animation.export()
+    })
+  },
+  slideDown() {//侧栏关闭
+    var animation = wx.createAnimation({
+      duration: 300
+    })
+    animation.translateX('-100%').step()
+    this.setData({
+      animationData: animation.export()
+    })
+    this.setData({
+      showShadow: 'none'
+    })
   }
 })

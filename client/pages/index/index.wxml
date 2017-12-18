@@ -1,6 +1,8 @@
 <!--index.wxml-->
-<loading hidden="{{eventReady&&chartReady}}">加载中</loading>
-<view class="float-action" style="opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;" bindtouchmove="ballMoveEvent" bindtap="ballClickEvent" bindtouchstart='ballClickStart' bindtouchend='ballClickEnd'></view>
+<loading hidden='{{eventReady&&chartReady}}'>加载中</loading>
+<view class='shadow' style='display:{{showShadow}}' bindtap='slideDown'></view>
+<view class='slide-menu' animation='{{animationData}}'></view>
+<view class='float-action' style='opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;' bindtouchmove='ballMoveEvent' bindtap='ballClickEvent' bindtouchstart='ballClickStart' bindtouchend='ballClickEnd'></view>
 <view class='container'>
   <view class='upper body'>
     <view class='title'>
@@ -11,7 +13,7 @@
         </picker>
       </view>
       <view class='section-button'>
-        <button id='time-button' class="title-button" bindtap='changeTimeType'>{{timeTitle[timeType]}}</button>
+        <button id='time-button' class='title-button' bindtap='changeTimeType'>{{timeTitle[timeType]}}</button>
       </view>
     </view>
     <canvas class='chart' canvas-id='chart-canvas'></canvas>
@@ -26,8 +28,8 @@
     </view>
     <view class='refresh-view'>
     </view>
-    <scroll-view id='event-scroll' scroll-y="true" style='height: 550rpx;'>
-      <block class='event' wx:key="{{index}}" wx:for="{{newEventsList}}">
+    <scroll-view id='event-scroll' scroll-y='{{scrollable}}' style='height: 550rpx;'>
+      <block class='event' wx:key='{{index}}' wx:for='{{newEventsList}}'>
         <view class='event event1' wx:if='{{index%2==0}}'>
           <view class='event-time'>{{item.occurtime}}</view>
           <view class='event-item'>

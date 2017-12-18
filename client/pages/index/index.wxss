@@ -76,9 +76,11 @@ Page {
   font-size: 22rpx;
   padding: 10rpx;
 }
-.event-username{
+
+.event-username {
   padding: 0 20rpx 0 20rpx;
 }
+
 .event-item {
   display: flex;
   justify-content: space-between;
@@ -87,4 +89,13 @@ Page {
 #chartPicker {
   display: flex;
   align-items: center;
+}
+
+.slide-menu {
+  background: #fff;
+  display: block;
+  width: 70%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
 }
