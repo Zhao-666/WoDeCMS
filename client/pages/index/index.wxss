@@ -13,6 +13,10 @@ Page {
   width: 700rpx;
 }
 
+.upper {
+  height: 500rpx;
+}
+
 .title {
   background-color: #41464d;
   padding: 15rpx;
@@ -84,6 +88,10 @@ Page {
 .event-item {
   display: flex;
   justify-content: space-between;
+}
+
+.event-scroll {
+  height: 550rpx;
 }
 
 #chartPicker {

@@ -1,8 +1,21 @@
 <!--index.wxml-->
+
+<!--加载中的图-->
 <loading hidden='{{eventReady&&chartReady}}'>加载中</loading>
+<!--弹出的阴影层-->
 <view class='shadow' style='display:{{showShadow}}' bindtap='slideDown'></view>
-<view class='slide-menu' animation='{{animationData}}'></view>
+<!--弹出的选项层-->
+<view class='slide-menu' animation='{{animationData}}'>
+  <view class='slide-menu-header'>
+    <view class='slide-userinfo' style='background:black'>
+      <image src='{{avatarUrl}}' style='width:100rpx;'></image>
+      <text>{{nickName}}</text>
+    </view>
+  </view>
+</view>
+<!--悬浮球-->
 <view class='float-action' style='opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;' bindtouchmove='ballMoveEvent' bindtap='ballClickEvent' bindtouchstart='ballClickStart' bindtouchend='ballClickEnd'></view>
+<!-- 首页报表 -->
 <view class='container'>
   <view class='upper body'>
     <view class='title'>
@@ -16,7 +29,7 @@
         <button id='time-button' class='title-button' bindtap='changeTimeType'>{{timeTitle[timeType]}}</button>
       </view>
     </view>
-    <canvas class='chart' canvas-id='chart-canvas'></canvas>
+    <canvas style='display:{{showCanvas}}' class='chart' canvas-id='chart-canvas'></canvas>
   </view>
   <view class='lower body'>
     <view class='title'>
@@ -28,7 +41,7 @@
     </view>
     <view class='refresh-view'>
     </view>
-    <scroll-view id='event-scroll' scroll-y='{{scrollable}}' style='height: 550rpx;'>
+    <scroll-view class='event-scroll' scroll-y='{{scrollable}}'>
       <block class='event' wx:key='{{index}}' wx:for='{{newEventsList}}'>
         <view class='event event1' wx:if='{{index%2==0}}'>
           <view class='event-time'>{{item.occurtime}}</view>

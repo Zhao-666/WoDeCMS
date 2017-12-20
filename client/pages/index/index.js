@@ -1,5 +1,6 @@
 var Charts = require('../../utils/wxcharts.js')
 var config = require('../../config.js')
+var app = getApp();
 
 Page({
   data: {
@@ -27,9 +28,38 @@ Page({
     ballRight: 30,
     scrollable: true,
     showShadow: 'none',
-    animationData: {}
+    showCanvas: 'block',
+    animationData: {},
+    nickName: '',
+    avatarUrl: ''
   },
-  onReady: function () {
+  onLoad: function () {
+    var res = wx.getSystemInfoSync()
+    let chartWidth = res.windowWidth - 20
+    let chartHeight = res.windowHeight / 3
+    let screenWidth = res.windowWidth
+    let screenHeight = res.windowHeight
+    this.setData({
+      chartWidth,
+      chartHeight,
+      screenWidth,
+      screenHeight
+    })
+
+    var that = this
+    //res = app.getUserInfo()
+    app.getUserInfo(function (res) {
+      console.log('app.getUserInfo', res)
+      that.setData({
+        nickName: res.nickName,
+        avatarUrl: res.avatarUrl
+      })
+    })
+
+    this.getChartData()
+    this.getNewEvents()
+  },
+  onShow: function () {
     var animation = wx.createAnimation({
       duration: 0
     })
@@ -78,21 +108,6 @@ Page({
     this.setData({
       chartReady: true
     })
-  },
-  onLoad: function () {
-    var res = wx.getSystemInfoSync()
-    let chartWidth = res.windowWidth - 20
-    let chartHeight = res.windowHeight / 3
-    let screenWidth = res.windowWidth
-    let screenHeight = res.windowHeight
-    this.setData({
-      chartWidth,
-      chartHeight,
-      screenWidth,
-      screenHeight
-    })
-    this.getChartData()
-    this.getNewEvents()
   },
   getChartData() {
     console.log('getChartData')
@@ -208,31 +223,29 @@ Page({
       ballRight: x
     });
   },
-  ballClickEvent(){
+  ballClickEvent() {
     this.slideUp()
   },
   slideUp() { //侧栏展开
     this.setData({
-      showShadow: 'block'
+      showShadow: 'block',
+      showCanvas: 'none'
     })
-    var animation = wx.createAnimation({
-      duration: 300
-    })
+    var animation = wx.createAnimation()
     animation.translateX(0).step()
     this.setData({
       animationData: animation.export()
     })
   },
   slideDown() {//侧栏关闭
-    var animation = wx.createAnimation({
-      duration: 300
-    })
+    var animation = wx.createAnimation()
     animation.translateX('-100%').step()
     this.setData({
       animationData: animation.export()
     })
     this.setData({
-      showShadow: 'none'
+      showShadow: 'none',
+      showCanvas: 'block'
     })
   }
 })
