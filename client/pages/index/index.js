@@ -31,7 +31,16 @@ Page({
     showCanvas: 'block',
     animationData: {},
     nickName: '',
-    avatarUrl: ''
+    avatarUrl: '',
+    menus:[
+      {
+        id:1,
+        title:'首页'
+      }
+    ]
+  },
+  onReady: function () {
+    this.slideUp()
   },
   onLoad: function () {
     var res = wx.getSystemInfoSync()

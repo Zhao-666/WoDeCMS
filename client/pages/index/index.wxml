@@ -7,10 +7,28 @@
 <!--弹出的选项层-->
 <view class='slide-menu' animation='{{animationData}}'>
   <view class='slide-menu-header'>
-    <view class='slide-userinfo' style='background:black'>
-      <image src='{{avatarUrl}}' style='width:100rpx;'></image>
-      <text>{{nickName}}</text>
+    <icon class='slide-cancel' type='cancel' color='white' size='30'></icon>
+    <view class='slide-userinfo'>
+      <image id='avatar' src='{{avatarUrl}}' style=''></image>
+      <text id='nickName'>{{nickName}}</text>
     </view>
+    <view class='slide-toolbar'>
+      <view class='slide-setting'>
+        <image src='../../images/star.png'></image>
+        <text>占位功能</text>
+      </view>
+      <view class='slide-setting'>
+        <image src='../../images/setting.png'></image>
+        <text>设置</text>
+      </view>
+    </view>
+  </view>
+  <view class='slide-menu-body'>
+    <block wx:key='{{index}}' wx:for='{{menus}}'>
+      <view>
+        {{item.title}}
+      </view>
+    </block>
   </view>
 </view>
 <!--悬浮球-->

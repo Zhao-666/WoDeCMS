@@ -107,3 +107,52 @@ Page {
   position: fixed;
   z-index: 999;
 }
+
+.slide-menu-header {
+  background-color: #2d3235;
+  height: 270rpx;
+}
+
+.slide-userinfo {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+}
+
+#avatar {
+  margin: 20rpx;
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+#nickName {
+  color: white;
+}
+
+.slide-toolbar{
+  display: flex;
+  justify-content: space-around;
+}
+
+.slide-setting {
+  display: flex;
+  align-items: center;
+}
+
+.slide-setting image {
+  width: 50rpx;
+  height: 50rpx;
+  padding-right: 10rpx;
+}
+
+.slide-setting text {
+  color: white;
+  font-size: 30rpx;
+}
+
+.slide-cancel {
+  position: absolute;
+  top: 20rpx;
+  right: 50rpx;
+}
