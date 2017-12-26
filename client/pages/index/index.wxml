@@ -7,32 +7,35 @@
 <!--弹出的选项层-->
 <view class='slide-menu' animation='{{animationData}}'>
   <view class='slide-menu-header'>
-    <icon class='slide-cancel' type='cancel' color='white' size='30'></icon>
+    <icon class='slide-cancel' type='cancel' color='white' size='30' bindtap='slideDown'></icon>
     <view class='slide-userinfo'>
       <image id='avatar' src='{{avatarUrl}}' style=''></image>
       <text id='nickName'>{{nickName}}</text>
     </view>
     <view class='slide-toolbar'>
-      <view class='slide-setting'>
-        <image src='../../images/star.png'></image>
+      <view class='slide-tab'>
+        <image src='../../images/star_active.png'></image>
         <text>占位功能</text>
       </view>
-      <view class='slide-setting'>
+      <view class='slide-tab' bindtap='clickSetting'>
         <image src='../../images/setting.png'></image>
         <text>设置</text>
       </view>
     </view>
   </view>
   <view class='slide-menu-body'>
-    <block wx:key='{{index}}' wx:for='{{menus}}'>
-      <view>
+    <block wx:key='{{index}}' wx:for='{{menu}}'>
+      <view class='slide-menu-item active' wx:if='{{item.id==currentMenuItem}}' data-id='{{item.id}}' bindtap='changeMenuItem'>
+        {{item.title}}
+      </view>
+      <view class='slide-menu-item' wx:else data-id='{{item.id}}' bindtap='changeMenuItem'>
         {{item.title}}
       </view>
     </block>
   </view>
 </view>
 <!--悬浮球-->
-<view class='float-action' style='opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;' bindtouchmove='ballMoveEvent' bindtap='ballClickEvent' bindtouchstart='ballClickStart' bindtouchend='ballClickEnd'></view>
+<view class='float-action' style='opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;' bindtouchmove='ballMoveEvent' bindtap='slideUp' bindtouchstart='ballClickStart' bindtouchend='ballClickEnd'></view>
 <!-- 首页报表 -->
 <view class='container'>
   <view class='upper body'>
@@ -61,20 +64,27 @@
     </view>
     <scroll-view class='event-scroll' scroll-y='{{scrollable}}'>
       <block class='event' wx:key='{{index}}' wx:for='{{newEventsList}}'>
-        <view class='event event1' wx:if='{{index%2==0}}'>
+        <view class='event'>
           <view class='event-time'>{{item.occurtime}}</view>
           <view class='event-item'>
             <view class='event-username'>{{item.username}}</view>
             <view class='event-log'>{{item.log}} </view>
           </view>
         </view>
-        <view class='event event2' wx:if='{{index%2==1}}'>
+        <!-- <view class='event event1' wx:if='{{index%2==0}}'>
           <view class='event-time'>{{item.occurtime}}</view>
           <view class='event-item'>
             <view class='event-username'>{{item.username}}</view>
             <view class='event-log'>{{item.log}} </view>
           </view>
         </view>
+        <view class='event event2' wx:else>
+          <view class='event-time'>{{item.occurtime}}</view>
+          <view class='event-item'>
+            <view class='event-username'>{{item.username}}</view>
+            <view class='event-log'>{{item.log}} </view>
+          </view>
+        </view> -->
       </block>
     </scroll-view>
   </view>

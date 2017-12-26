@@ -1,5 +1,5 @@
 Page {
-  background-color: #262a2e;
+  background-color: #000;
 }
 
 .container {
@@ -8,9 +8,9 @@ Page {
 }
 
 .body {
-  background-color: #2d3235;
-  padding: 10rpx;
+  background-color: #1a1a1a;
   width: 700rpx;
+  margin: 10rpx;
 }
 
 .upper {
@@ -18,7 +18,6 @@ Page {
 }
 
 .title {
-  background-color: #41464d;
   padding: 15rpx;
   display: flex;
   align-items: center;
@@ -36,7 +35,7 @@ Page {
 }
 
 .title-button {
-  background-color: #4385bd;
+  background-color: #3a76d0;
   color: white;
   display: inline-block;
   width: 100rpx;
@@ -50,11 +49,13 @@ Page {
 .title-text {
   font-size: 26rpx;
   flex-grow: 1;
-  color: #eee;
+  color: #999;
 }
 
 #chart-picker {
-  padding: 10rpx 0 10rpx 0;
+  padding: 10rpx 0 10rpx 20rpx;
+  background-color: #2e2e2e;
+  border-radius: 30rpx;
 }
 
 .section-button {
@@ -69,7 +70,11 @@ Page {
 
 .event {
   font-size: 24rpx;
-  padding: 20rpx;
+  margin: 20rpx;
+  padding: 10rpx;
+  background-color: #2e2e2e;
+  border-radius: 10rpx;
+  color: #808080;
 }
 
 .event2 {
@@ -100,7 +105,7 @@ Page {
 }
 
 .slide-menu {
-  background: #fff;
+  background: #353a3f;
   display: block;
   width: 70%;
   height: 100%;
@@ -109,8 +114,9 @@ Page {
 }
 
 .slide-menu-header {
-  background-color: #2d3235;
+  background-color: #262a2e;
   height: 270rpx;
+  border-bottom: 2rpx black solid;
 }
 
 .slide-userinfo {
@@ -130,23 +136,23 @@ Page {
   color: white;
 }
 
-.slide-toolbar{
+.slide-toolbar {
   display: flex;
   justify-content: space-around;
 }
 
-.slide-setting {
+.slide-tab {
   display: flex;
   align-items: center;
 }
 
-.slide-setting image {
-  width: 50rpx;
-  height: 50rpx;
+.slide-tab image {
+  width: 40rpx;
+  height: 40rpx;
   padding-right: 10rpx;
 }
 
-.slide-setting text {
+.slide-tab text {
   color: white;
   font-size: 30rpx;
 }
@@ -154,5 +160,17 @@ Page {
 .slide-cancel {
   position: absolute;
   top: 20rpx;
-  right: 50rpx;
+  right: 30rpx;
+}
+
+.slide-menu-item {
+  padding-left: 50rpx;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  color: white;
+  font-size: 26rpx;
+}
+
+.active {
+  background: #41464d;
 }

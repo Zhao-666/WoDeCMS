@@ -1,0 +1,29 @@
+<view class='container'>
+  <view class='item'>
+    <view class='item-font'>
+      <view class='title'>主题</view>
+      <view class='description'>
+        <view>夜间模式</view>
+      </view>
+    </view>
+    <switch color="{{switchColor}}" checked />
+  </view>
+  <view class='item'>
+    <view class='item-font'>
+      <view class='title'>浏览设置</view>
+      <view class='description'>
+        <view>实时更新</view>
+      </view>
+    </view>
+    <switch color="{{switchColor}}" />
+  </view>
+  <view class='item' style='border:0rpx'>
+    <view class='item-font'>
+      <view class='title'>数据</view>
+      <view class='description'>
+        <view>清除缓存</view>
+      </view>
+    </view>
+    <switch color="{{switchColor}}" />
+  </view>
+</view>

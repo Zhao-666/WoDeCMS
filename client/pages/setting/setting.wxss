@@ -1,0 +1,28 @@
+Page {
+  background-color: #000;
+}
+
+.container {
+  margin-top: 50rpx;
+  color: #7D7D7D;
+  padding: 0 20rpx;
+  background-color: #1A1A1A;
+  border: 1rpx #2A2A2A solid; 
+}
+
+.item{
+  padding: 20rpx 0;
+  margin: 0 30rpx;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx #2A2A2A solid; 
+}
+.title{
+  font-size: 28rpx;
+}
+
+.description{
+  font-size: 22rpx;
+  color: #676767;
+}

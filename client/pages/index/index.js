@@ -1,20 +1,56 @@
 var Charts = require('../../utils/wxcharts.js')
 var config = require('../../config.js')
 var app = getApp();
+var chartArray = [{
+  value: 1,
+  name: '事件1'
+}, {
+  value: 2,
+  name: '事件2'
+}, {
+  value: 3,
+  name: '事件3'
+}]
+
+var menu = [
+  {
+    id: 0,
+    title: '首页'
+  },
+  {
+    id: 1,
+    title: '数据报表'
+  },
+  {
+    id: 2,
+    title: '系统设置'
+  },
+  {
+    id: 3,
+    title: '安全基线'
+  },
+  {
+    id: 4,
+    title: '防病毒'
+  },
+  {
+    id: 5,
+    title: '数据防泄露'
+  },
+  {
+    id: 6,
+    title: '系统维护'
+  },
+  {
+    id: 7,
+    title: '更新策略'
+  }
+]
 
 Page({
   data: {
     chartIndex: 0,
-    chartArray: [{
-      value: 1,
-      name: '事件1'
-    }, {
-      value: 2,
-      name: '事件2'
-    }, {
-      value: 3,
-      name: '事件3'
-    }],
+    chartArray: chartArray,
     chartData: {},
     chartWidth: 0,
     chartHeight: 0,
@@ -32,15 +68,8 @@ Page({
     animationData: {},
     nickName: '',
     avatarUrl: '',
-    menus:[
-      {
-        id:1,
-        title:'首页'
-      }
-    ]
-  },
-  onReady: function () {
-    this.slideUp()
+    currentMenuItem: 0,
+    menu: menu
   },
   onLoad: function () {
     var res = wx.getSystemInfoSync()
@@ -76,6 +105,9 @@ Page({
     this.setData({
       animationData: animation.export()
     })
+  },
+  onReady() {
+    //this.slideUp()
   },
   loadChart: function () {
     console.log("loadChart:")
@@ -232,29 +264,36 @@ Page({
       ballRight: x
     });
   },
-  ballClickEvent() {
-    this.slideUp()
-  },
   slideUp() { //侧栏展开
-    this.setData({
-      showShadow: 'block',
-      showCanvas: 'none'
-    })
     var animation = wx.createAnimation()
     animation.translateX(0).step()
     this.setData({
-      animationData: animation.export()
+      showShadow: 'block',
+      showCanvas: 'none',
+      scrollable: false,
+      animationData: animation.export(),
     })
   },
   slideDown() {//侧栏关闭
     var animation = wx.createAnimation()
     animation.translateX('-100%').step()
     this.setData({
-      animationData: animation.export()
-    })
-    this.setData({
       showShadow: 'none',
-      showCanvas: 'block'
+      showCanvas: 'block',
+      scrollable: true,
+      animationData: animation.export(),
     })
-  }
+  },
+  changeMenuItem(e) {
+    console.log(e)
+    this.setData({
+      currentMenuItem: e.currentTarget.dataset.id
+    })
+  },
+  clickSetting(){
+    this.slideDown()
+    wx.navigateTo({
+      url: '../setting/setting',
+    })
+  },
 })

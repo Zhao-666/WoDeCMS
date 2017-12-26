@@ -2,9 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
+    "pages/setting/setting",
     "pages/demo/demo"
   ],
   "window": {
-    "navigationBarTitleText": "WoDe管理系统"
+    "navigationBarTitleText": "WoDe管理系统",
+    "navigationBarBackgroundColor": "#1A1A1A"
   }
 }
