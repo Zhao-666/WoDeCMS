@@ -12,6 +12,7 @@ https://github.com/xiaolin3303/wx-charts
 * 可滑动视图
 * 悬浮球
 * 屏蔽下层界面，弹出选项卡
+* 个人选项页
 
 # 示例
 ![登陆页](https://github.com/Zhao-666/WoDeCMS/raw/master/client/Example/login.jpg)
