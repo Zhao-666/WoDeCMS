@@ -116,7 +116,7 @@ Page({
     var chartHeight = this.data.chartHeight
     new Charts({
       canvasId: 'chart-canvas',
-      background: '#2d3235',
+      background: '#1A1A1A',
       legend: false,
       type: 'area',
       categories: result.date,//横坐标
@@ -125,22 +125,21 @@ Page({
       series: [{
         name: '日期',
         data: result.count, //纵坐标
-        color: '#448ff9'
+        color: '#3a76d0'
       }],
       yAxis: {
         min: 0,
-        fontColor: '#dddddd',
-        gridColor: '#dddddd',
+        fontColor: '#808080',
+        gridColor: '#808080',
         format: function (val) {
           return val
         },
       },
       xAxis: {
-        fontColor: '#dddddd',
-        gridColor: '#dddddd'
+        fontColor: '#808080',
+        gridColor: '#808080'
       },
       extra: {
-        legendTextColor: '#dddddd',
         lineStyle: 'curve'
       },
       width: chartWidth,

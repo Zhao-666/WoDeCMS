@@ -7,10 +7,10 @@
 <!--弹出的选项层-->
 <view class='slide-menu' animation='{{animationData}}'>
   <view class='slide-menu-header'>
-    <icon class='slide-cancel' type='cancel' color='white' size='30' bindtap='slideDown'></icon>
+    <icon class='slide-cancel' type='cancel' color='#808080' size='30' bindtap='slideDown'></icon>
     <view class='slide-userinfo'>
       <image id='avatar' src='{{avatarUrl}}' style=''></image>
-      <text id='nickName'>{{nickName}}</text>
+      <text>{{nickName}}</text>
     </view>
     <view class='slide-toolbar'>
       <view class='slide-tab'>
