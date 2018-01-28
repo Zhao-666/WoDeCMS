@@ -17,3 +17,4 @@ https://github.com/xiaolin3303/wx-charts
 # 示例
 ![登陆页](https://github.com/Zhao-666/WoDeCMS/raw/master/client/Example/login.jpg)
 ![首页报表](https://github.com/Zhao-666/WoDeCMS/raw/master/client/Example/index.jpg)
+![个人页](https://github.com/Zhao-666/WoDeCMS/raw/master/client/Example/custom.jpg)
