@@ -684,10 +684,13 @@ function getYAxisTextList(series, opts, config) {
     }
 
     // fix issue https://github.com/xiaolin3303/wx-charts/issues/9
-    if (minData === maxData) {
+    if (minData === maxData && maxData != 0) {
         var rangeSpan = maxData || 1;
         minData -= rangeSpan;
         maxData += rangeSpan;
+    }else if(minData === 0 && maxData === 0){
+        maxData = 1;
+        minData = 0;
     }
 
     var dataRange = getDataRange(minData, maxData);

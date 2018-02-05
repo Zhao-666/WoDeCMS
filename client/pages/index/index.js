@@ -207,7 +207,6 @@ Page({
         count: [0, 0, 0, 0, 0]
       }
     }
-    console.log(result)
     return result
   },
   refreshEvent() {
